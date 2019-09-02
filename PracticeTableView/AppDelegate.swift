@@ -10,12 +10,26 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    var myNavigationController: UINavigationController?
+    
+    private func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+        
+        // ViewControllerを生成.
+        let myViewController: ViewController = ViewController()
+        
+        // Navication Controllerを生成.
+        myNavigationController = UINavigationController(rootViewController: myViewController)
+        
+        // UIWindowを生成.
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        // rootViewControllerにNavigationControllerを設定.
+        self.window?.rootViewController = myNavigationController
+        
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 
