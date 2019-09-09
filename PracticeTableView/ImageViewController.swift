@@ -49,16 +49,15 @@ extension ImageViewController: UIImagePickerControllerDelegate, UINavigationCont
         
         let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         /// 画像の拡張子を取得する
-//        var imageType: String = ""
-//        if let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL {
-//            imageType = imageURL.pathExtension.lowercased()
-//        }
-//        let base64Img = image?.jpegData(compressionQuality: 1)?.base64EncodedString() ?? ""
-//        let params: [String: Any] = ["image": "data:image/\(imageType);base64,\(base64Img)"]
-//        self.imgInput.postImage(params: params) {url in
-//            self.multicastDelegate.invoke(invocation: {$0.appendImgUrl(imgUrl: url, postQuestionId: postQuestionId)})
-//        }
-        self.imageArray.append(image!)
+        var imageType: String = ""
+        if let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL {
+            imageType = imageURL.pathExtension.lowercased()
+        }
+        let base64Img = image?.jpegData(compressionQuality: 1)?.base64EncodedString() ?? ""
+        let params: [String: Any] = ["image": "data:image/\(imageType);base64,\(base64Img)"]
+        //self.imgInput.postImage(params: params) {url in
+            //self.multicastDelegate.invoke(invocation: {$0.appendImgUrl(imgUrl: url, postQuestionId: postQuestionId)})
+      //  self.imageArray.append(image!)
         
         self.dismiss(animated: true, completion: nil)
     }

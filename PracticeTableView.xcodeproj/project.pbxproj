@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		47F30FFFC8CA60F13BF79DAC /* Pods_PracticeTableViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AA0AD431B4119439087A19 /* Pods_PracticeTableViewTests.framework */; };
 		50E508520F2D6CA1964647C7 /* Pods_PracticeTableViewUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0196FAC19D7DB9ED1619BC7F /* Pods_PracticeTableViewUITests.framework */; };
+		631E5484231F50E300416B77 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E5483231F50E300416B77 /* File.swift */; };
+		631E5486231F518500416B77 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E5485231F518500416B77 /* FeedbackViewController.swift */; };
+		6320F43B232680E9006A92D8 /* SwiftValidator+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6320F43A232680E9006A92D8 /* SwiftValidator+Extension.swift */; };
 		6344095222F1738900F64C99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6344095122F1738900F64C99 /* AppDelegate.swift */; };
 		6344095422F1738900F64C99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6344095322F1738900F64C99 /* ViewController.swift */; };
 		6344095722F1738900F64C99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6344095522F1738900F64C99 /* Main.storyboard */; };
@@ -16,6 +19,7 @@
 		6344095C22F1738B00F64C99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6344095A22F1738B00F64C99 /* LaunchScreen.storyboard */; };
 		6344096722F1738B00F64C99 /* PracticeTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6344096622F1738B00F64C99 /* PracticeTableViewTests.swift */; };
 		6344097222F1738B00F64C99 /* PracticeTableViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6344097122F1738B00F64C99 /* PracticeTableViewUITests.swift */; };
+		6367BE3D23265172000AF813 /* ValidateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6367BE3C23265172000AF813 /* ValidateViewController.swift */; };
 		6379152C23193AEB00E604A9 /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379152B23193AEB00E604A9 /* SampleView.swift */; };
 		6379152E23193B0300E604A9 /* SampleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6379152D23193B0200E604A9 /* SampleView.xib */; };
 		637915302319429400E604A9 /* InputFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379152F2319429400E604A9 /* InputFormViewController.swift */; };
@@ -52,6 +56,9 @@
 		06FD08E4727A3767A861D363 /* Pods-PracticeTableViewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeTableViewUITests.debug.xcconfig"; path = "Target Support Files/Pods-PracticeTableViewUITests/Pods-PracticeTableViewUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		21ED470E3C15061E0668A3DA /* Pods-PracticeTableView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeTableView.release.xcconfig"; path = "Target Support Files/Pods-PracticeTableView/Pods-PracticeTableView.release.xcconfig"; sourceTree = "<group>"; };
 		3EE75877A0C8B01E0CF67800 /* Pods_PracticeTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PracticeTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		631E5483231F50E300416B77 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		631E5485231F518500416B77 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		6320F43A232680E9006A92D8 /* SwiftValidator+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftValidator+Extension.swift"; sourceTree = "<group>"; };
 		6344094E22F1738900F64C99 /* PracticeTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6344095122F1738900F64C99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6344095322F1738900F64C99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +72,7 @@
 		6344096D22F1738B00F64C99 /* PracticeTableViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PracticeTableViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6344097122F1738B00F64C99 /* PracticeTableViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeTableViewUITests.swift; sourceTree = "<group>"; };
 		6344097322F1738B00F64C99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6367BE3C23265172000AF813 /* ValidateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateViewController.swift; sourceTree = "<group>"; };
 		6379152B23193AEB00E604A9 /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
 		6379152D23193B0200E604A9 /* SampleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleView.xib; sourceTree = "<group>"; };
 		6379152F2319429400E604A9 /* InputFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFormViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +174,10 @@
 				6379154C231D435C00E604A9 /* ImageViewController.swift */,
 				6379154E231D440A00E604A9 /* ImageCollectionViewCell.swift */,
 				6379154F231D440A00E604A9 /* ImageCollectionViewCell.xib */,
+				631E5483231F50E300416B77 /* File.swift */,
+				631E5485231F518500416B77 /* FeedbackViewController.swift */,
+				6367BE3C23265172000AF813 /* ValidateViewController.swift */,
+				6320F43A232680E9006A92D8 /* SwiftValidator+Extension.swift */,
 			);
 			path = PracticeTableView;
 			sourceTree = "<group>";
@@ -429,8 +441,12 @@
 				63791532231942F100E604A9 /* InputFormView.swift in Sources */,
 				63BDD6F3231779FF00DC6F40 /* ChatRoomViewController.swift in Sources */,
 				63791550231D440A00E604A9 /* ImageCollectionViewCell.swift in Sources */,
+				631E5486231F518500416B77 /* FeedbackViewController.swift in Sources */,
+				6367BE3D23265172000AF813 /* ValidateViewController.swift in Sources */,
 				63BDD6F72317B93C00DC6F40 /* ChatRoomInputView.swift in Sources */,
+				6320F43B232680E9006A92D8 /* SwiftValidator+Extension.swift in Sources */,
 				6344095222F1738900F64C99 /* AppDelegate.swift in Sources */,
+				631E5484231F50E300416B77 /* File.swift in Sources */,
 				63791534231944B300E604A9 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
