@@ -65,6 +65,7 @@ class ValidateViewController: UIViewController {
 extension ValidateViewController: ValidationDelegate {
     func validationSuccessful() {
         /// フォームに送信
+        print("送信に成功しました")
     }
     
     func validationFailed(_ errors: [(Validatable, ValidationError)]) {

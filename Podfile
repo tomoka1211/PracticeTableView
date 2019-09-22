@@ -14,6 +14,9 @@ target 'PracticeTableView' do
   pod 'Cartography', '~> 3.0'
   pod 'Kingfisher'
   pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :tag => '4.2.0'
+  pod 'UITextView+Placeholder'
+  pod 'IQKeyboardManager'
+  pod 'Nuke'
 
   target 'PracticeTableViewTests' do
     inherit! :search_paths

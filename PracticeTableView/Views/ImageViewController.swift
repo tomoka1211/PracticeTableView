@@ -57,7 +57,7 @@ extension ImageViewController: UIImagePickerControllerDelegate, UINavigationCont
         let params: [String: Any] = ["image": "data:image/\(imageType);base64,\(base64Img)"]
         //self.imgInput.postImage(params: params) {url in
             //self.multicastDelegate.invoke(invocation: {$0.appendImgUrl(imgUrl: url, postQuestionId: postQuestionId)})
-      //  self.imageArray.append(image!)
+        self.imageArray.append(image!)
         
         self.dismiss(animated: true, completion: nil)
     }
@@ -72,7 +72,7 @@ extension ImageViewController: UIImagePickerControllerDelegate, UINavigationCont
 extension ImageViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
-        cell.bind(img: self.imageArray[indexPath.row])
+        cell.bindImage(img: self.imageArray[indexPath.row])
         cell.indexPath = indexPath.row
         return cell
     }

@@ -12,6 +12,8 @@
 		631E5484231F50E300416B77 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E5483231F50E300416B77 /* File.swift */; };
 		631E5486231F518500416B77 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E5485231F518500416B77 /* FeedbackViewController.swift */; };
 		6320F43B232680E9006A92D8 /* SwiftValidator+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6320F43A232680E9006A92D8 /* SwiftValidator+Extension.swift */; };
+		6320F43F2326AA44006A92D8 /* InputTextFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6320F43E2326AA44006A92D8 /* InputTextFormViewController.swift */; };
+		6327BA8C233638DE005DBC95 /* ImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6327BA8B233638DE005DBC95 /* ImageTableViewController.swift */; };
 		6344095222F1738900F64C99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6344095122F1738900F64C99 /* AppDelegate.swift */; };
 		6344095422F1738900F64C99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6344095322F1738900F64C99 /* ViewController.swift */; };
 		6344095722F1738900F64C99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6344095522F1738900F64C99 /* Main.storyboard */; };
@@ -28,6 +30,14 @@
 		6379154D231D435C00E604A9 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379154C231D435C00E604A9 /* ImageViewController.swift */; };
 		63791550231D440A00E604A9 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379154E231D440A00E604A9 /* ImageCollectionViewCell.swift */; };
 		63791551231D440A00E604A9 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6379154F231D440A00E604A9 /* ImageCollectionViewCell.xib */; };
+		63840AA3232762A700E9E682 /* ContainerFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63840AA2232762A700E9E682 /* ContainerFormViewController.swift */; };
+		63840AA52327655D00E9E682 /* MessageInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63840AA42327655D00E9E682 /* MessageInputViewController.swift */; };
+		63840AA823277A4C00E9E682 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63840AA723277A4C00E9E682 /* UIView+Extension.swift */; };
+		63840AAA23277F3700E9E682 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63840AA923277F3700E9E682 /* UIViewController+Extension.swift */; };
+		63840AAC2327845C00E9E682 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63840AAB2327845C00E9E682 /* Const.swift */; };
+		63840AAE23278E1900E9E682 /* Registrable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63840AAD23278E1900E9E682 /* Registrable.swift */; };
+		63840AB0232F5E0E00E9E682 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63840AAF232F5E0E00E9E682 /* UIImage+Extension.swift */; };
+		639D81AB2334C15A0092557B /* KeyboardDisplayTextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639D81AA2334C15A0092557B /* KeyboardDisplayTextFieldViewController.swift */; };
 		63BDD6F3231779FF00DC6F40 /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BDD6F2231779FF00DC6F40 /* ChatRoomViewController.swift */; };
 		63BDD6F72317B93C00DC6F40 /* ChatRoomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BDD6F62317B93C00DC6F40 /* ChatRoomInputView.swift */; };
 		63BDD6F92317B95300DC6F40 /* ChatRoomInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63BDD6F82317B95300DC6F40 /* ChatRoomInputView.xib */; };
@@ -59,6 +69,8 @@
 		631E5483231F50E300416B77 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		631E5485231F518500416B77 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		6320F43A232680E9006A92D8 /* SwiftValidator+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftValidator+Extension.swift"; sourceTree = "<group>"; };
+		6320F43E2326AA44006A92D8 /* InputTextFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextFormViewController.swift; sourceTree = "<group>"; };
+		6327BA8B233638DE005DBC95 /* ImageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewController.swift; sourceTree = "<group>"; };
 		6344094E22F1738900F64C99 /* PracticeTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6344095122F1738900F64C99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6344095322F1738900F64C99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +93,14 @@
 		6379154C231D435C00E604A9 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		6379154E231D440A00E604A9 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		6379154F231D440A00E604A9 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		63840AA2232762A700E9E682 /* ContainerFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerFormViewController.swift; sourceTree = "<group>"; };
+		63840AA42327655D00E9E682 /* MessageInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInputViewController.swift; sourceTree = "<group>"; };
+		63840AA723277A4C00E9E682 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		63840AA923277F3700E9E682 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		63840AAB2327845C00E9E682 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		63840AAD23278E1900E9E682 /* Registrable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registrable.swift; sourceTree = "<group>"; };
+		63840AAF232F5E0E00E9E682 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		639D81AA2334C15A0092557B /* KeyboardDisplayTextFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDisplayTextFieldViewController.swift; sourceTree = "<group>"; };
 		63BDD6F2231779FF00DC6F40 /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
 		63BDD6F62317B93C00DC6F40 /* ChatRoomInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomInputView.swift; sourceTree = "<group>"; };
 		63BDD6F82317B95300DC6F40 /* ChatRoomInputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatRoomInputView.xib; sourceTree = "<group>"; };
@@ -132,6 +152,40 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		6320F43C2326A755006A92D8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6320F43E2326AA44006A92D8 /* InputTextFormViewController.swift */,
+				6344095322F1738900F64C99 /* ViewController.swift */,
+				63BDD6F2231779FF00DC6F40 /* ChatRoomViewController.swift */,
+				63BDD6F62317B93C00DC6F40 /* ChatRoomInputView.swift */,
+				63BDD6F82317B95300DC6F40 /* ChatRoomInputView.xib */,
+				6379152B23193AEB00E604A9 /* SampleView.swift */,
+				6379152D23193B0200E604A9 /* SampleView.xib */,
+				6379152F2319429400E604A9 /* InputFormViewController.swift */,
+				63791531231942F100E604A9 /* InputFormView.swift */,
+				6379154C231D435C00E604A9 /* ImageViewController.swift */,
+				631E5483231F50E300416B77 /* File.swift */,
+				631E5485231F518500416B77 /* FeedbackViewController.swift */,
+				6367BE3C23265172000AF813 /* ValidateViewController.swift */,
+				63840AA2232762A700E9E682 /* ContainerFormViewController.swift */,
+				63840AA42327655D00E9E682 /* MessageInputViewController.swift */,
+				639D81AA2334C15A0092557B /* KeyboardDisplayTextFieldViewController.swift */,
+				6327BA8B233638DE005DBC95 /* ImageTableViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6320F43D2326A799006A92D8 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				6379154E231D440A00E604A9 /* ImageCollectionViewCell.swift */,
+				6379154F231D440A00E604A9 /* ImageCollectionViewCell.xib */,
+			);
+			name = CustomCells;
+			path = PracticeTableView/CustomCells;
+			sourceTree = SOURCE_ROOT;
+		};
 		6344094522F1738900F64C99 = {
 			isa = PBXGroup;
 			children = (
@@ -158,26 +212,15 @@
 			isa = PBXGroup;
 			children = (
 				6344095122F1738900F64C99 /* AppDelegate.swift */,
-				6344095322F1738900F64C99 /* ViewController.swift */,
 				6344095522F1738900F64C99 /* Main.storyboard */,
 				6344095822F1738B00F64C99 /* Assets.xcassets */,
+				63840AA623277A2700E9E682 /* Extension */,
 				6344095A22F1738B00F64C99 /* LaunchScreen.storyboard */,
 				6344095D22F1738B00F64C99 /* Info.plist */,
-				63BDD6F2231779FF00DC6F40 /* ChatRoomViewController.swift */,
-				63BDD6F62317B93C00DC6F40 /* ChatRoomInputView.swift */,
-				63BDD6F82317B95300DC6F40 /* ChatRoomInputView.xib */,
-				6379152B23193AEB00E604A9 /* SampleView.swift */,
-				6379152D23193B0200E604A9 /* SampleView.xib */,
-				6379152F2319429400E604A9 /* InputFormViewController.swift */,
-				63791531231942F100E604A9 /* InputFormView.swift */,
-				63791533231944B300E604A9 /* UIColor+Extension.swift */,
-				6379154C231D435C00E604A9 /* ImageViewController.swift */,
-				6379154E231D440A00E604A9 /* ImageCollectionViewCell.swift */,
-				6379154F231D440A00E604A9 /* ImageCollectionViewCell.xib */,
-				631E5483231F50E300416B77 /* File.swift */,
-				631E5485231F518500416B77 /* FeedbackViewController.swift */,
-				6367BE3C23265172000AF813 /* ValidateViewController.swift */,
-				6320F43A232680E9006A92D8 /* SwiftValidator+Extension.swift */,
+				6320F43C2326A755006A92D8 /* Views */,
+				6320F43D2326A799006A92D8 /* CustomCells */,
+				63840AAB2327845C00E9E682 /* Const.swift */,
+				63840AAD23278E1900E9E682 /* Registrable.swift */,
 			);
 			path = PracticeTableView;
 			sourceTree = "<group>";
@@ -198,6 +241,18 @@
 				6344097322F1738B00F64C99 /* Info.plist */,
 			);
 			path = PracticeTableViewUITests;
+			sourceTree = "<group>";
+		};
+		63840AA623277A2700E9E682 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				63791533231944B300E604A9 /* UIColor+Extension.swift */,
+				6320F43A232680E9006A92D8 /* SwiftValidator+Extension.swift */,
+				63840AA723277A4C00E9E682 /* UIView+Extension.swift */,
+				63840AA923277F3700E9E682 /* UIViewController+Extension.swift */,
+				63840AAF232F5E0E00E9E682 /* UIImage+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		707DDA801EFF96579D4FFE7E /* Frameworks */ = {
@@ -438,14 +493,24 @@
 				6379154D231D435C00E604A9 /* ImageViewController.swift in Sources */,
 				637915302319429400E604A9 /* InputFormViewController.swift in Sources */,
 				6344095422F1738900F64C99 /* ViewController.swift in Sources */,
+				63840AAE23278E1900E9E682 /* Registrable.swift in Sources */,
+				63840AA52327655D00E9E682 /* MessageInputViewController.swift in Sources */,
 				63791532231942F100E604A9 /* InputFormView.swift in Sources */,
 				63BDD6F3231779FF00DC6F40 /* ChatRoomViewController.swift in Sources */,
+				63840AA3232762A700E9E682 /* ContainerFormViewController.swift in Sources */,
+				63840AB0232F5E0E00E9E682 /* UIImage+Extension.swift in Sources */,
+				63840AAA23277F3700E9E682 /* UIViewController+Extension.swift in Sources */,
+				63840AAC2327845C00E9E682 /* Const.swift in Sources */,
+				6320F43F2326AA44006A92D8 /* InputTextFormViewController.swift in Sources */,
 				63791550231D440A00E604A9 /* ImageCollectionViewCell.swift in Sources */,
 				631E5486231F518500416B77 /* FeedbackViewController.swift in Sources */,
 				6367BE3D23265172000AF813 /* ValidateViewController.swift in Sources */,
+				63840AA823277A4C00E9E682 /* UIView+Extension.swift in Sources */,
 				63BDD6F72317B93C00DC6F40 /* ChatRoomInputView.swift in Sources */,
 				6320F43B232680E9006A92D8 /* SwiftValidator+Extension.swift in Sources */,
+				6327BA8C233638DE005DBC95 /* ImageTableViewController.swift in Sources */,
 				6344095222F1738900F64C99 /* AppDelegate.swift in Sources */,
+				639D81AB2334C15A0092557B /* KeyboardDisplayTextFieldViewController.swift in Sources */,
 				631E5484231F50E300416B77 /* File.swift in Sources */,
 				63791534231944B300E604A9 /* UIColor+Extension.swift in Sources */,
 			);
