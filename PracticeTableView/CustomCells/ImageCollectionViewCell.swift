@@ -73,9 +73,8 @@ class ImageCollectionViewCell: UICollectionViewCell, NibRegistrable {
         }
     }
     
-    func bind(imgUrl: String){
-        let url = URL(string: imgUrl)
-        imageView.kf.setImage(with: url)
+    func bind(imgUrl: URL){
+        imageView.kf.setImage(with: imgUrl)
     }
     
 }

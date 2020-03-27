@@ -1,0 +1,6 @@
+framework module Pods_PracticeTableViewUITests {
+  umbrella header "Pods-PracticeTableViewUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

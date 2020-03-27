@@ -1,0 +1,6 @@
+framework module Pods_PracticeTableView {
+  umbrella header "Pods-PracticeTableView-umbrella.h"
+
+  export *
+  module * { export * }
+}

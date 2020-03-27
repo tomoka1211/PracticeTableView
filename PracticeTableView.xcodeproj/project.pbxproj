@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		47F30FFFC8CA60F13BF79DAC /* Pods_PracticeTableViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AA0AD431B4119439087A19 /* Pods_PracticeTableViewTests.framework */; };
 		50E508520F2D6CA1964647C7 /* Pods_PracticeTableViewUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0196FAC19D7DB9ED1619BC7F /* Pods_PracticeTableViewUITests.framework */; };
-		631E5484231F50E300416B77 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E5483231F50E300416B77 /* File.swift */; };
 		631E5486231F518500416B77 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E5485231F518500416B77 /* FeedbackViewController.swift */; };
 		6320F43B232680E9006A92D8 /* SwiftValidator+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6320F43A232680E9006A92D8 /* SwiftValidator+Extension.swift */; };
 		6320F43F2326AA44006A92D8 /* InputTextFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6320F43E2326AA44006A92D8 /* InputTextFormViewController.swift */; };
@@ -21,6 +20,9 @@
 		6344095C22F1738B00F64C99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6344095A22F1738B00F64C99 /* LaunchScreen.storyboard */; };
 		6344096722F1738B00F64C99 /* PracticeTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6344096622F1738B00F64C99 /* PracticeTableViewTests.swift */; };
 		6344097222F1738B00F64C99 /* PracticeTableViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6344097122F1738B00F64C99 /* PracticeTableViewUITests.swift */; };
+		63484A1D242C81230029B2E5 /* PickerKeyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63484A1C242C81230029B2E5 /* PickerKeyboard.storyboard */; };
+		63484A1F242C815B0029B2E5 /* PickerKeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63484A1E242C815B0029B2E5 /* PickerKeyboardViewController.swift */; };
+		63484A22242C81B10029B2E5 /* PickerKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63484A21242C81B10029B2E5 /* PickerKeyboard.swift */; };
 		6367BE3D23265172000AF813 /* ValidateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6367BE3C23265172000AF813 /* ValidateViewController.swift */; };
 		6379152C23193AEB00E604A9 /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379152B23193AEB00E604A9 /* SampleView.swift */; };
 		6379152E23193B0300E604A9 /* SampleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6379152D23193B0200E604A9 /* SampleView.xib */; };
@@ -37,10 +39,35 @@
 		63840AAC2327845C00E9E682 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63840AAB2327845C00E9E682 /* Const.swift */; };
 		63840AAE23278E1900E9E682 /* Registrable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63840AAD23278E1900E9E682 /* Registrable.swift */; };
 		63840AB0232F5E0E00E9E682 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63840AAF232F5E0E00E9E682 /* UIImage+Extension.swift */; };
+		639128A4233881450055BB5D /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639128A2233881450055BB5D /* ImageTableViewCell.swift */; };
+		639128A5233881450055BB5D /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639128A3233881450055BB5D /* ImageTableViewCell.xib */; };
+		639128A82338844C0055BB5D /* ImageListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639128A62338844C0055BB5D /* ImageListTableViewCell.swift */; };
+		639128A92338844C0055BB5D /* ImageListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639128A72338844C0055BB5D /* ImageListTableViewCell.xib */; };
+		639128B7233C5B110055BB5D /* Kingfisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639128B6233C5B110055BB5D /* Kingfisher+Extension.swift */; };
+		639128B9233C83280055BB5D /* OwnTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639128B8233C83280055BB5D /* OwnTableView.swift */; };
+		639128C4233F70100055BB5D /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639128C3233F700F0055BB5D /* ImagePickerViewController.swift */; };
+		639128C7233F70B10055BB5D /* PickerImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639128C5233F70B10055BB5D /* PickerImageTableViewCell.swift */; };
+		639128C8233F70B10055BB5D /* PickerImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639128C6233F70B10055BB5D /* PickerImageTableViewCell.xib */; };
+		639128CF233F71CD0055BB5D /* PostImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639128CD233F71CD0055BB5D /* PostImageTableViewCell.xib */; };
+		639128D0233F71CD0055BB5D /* PostImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639128CE233F71CD0055BB5D /* PostImageTableViewCell.swift */; };
+		639128D32342552A0055BB5D /* MaterialInkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639128D22342552A0055BB5D /* MaterialInkViewController.swift */; };
+		639128D7234325710055BB5D /* LikePostQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639128D6234325710055BB5D /* LikePostQuestionViewController.swift */; };
+		639128DA234326060055BB5D /* PostPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639128D8234326060055BB5D /* PostPickerTableViewCell.swift */; };
+		639128DB234326060055BB5D /* PostPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639128D9234326060055BB5D /* PostPickerTableViewCell.xib */; };
+		639128DE234326280055BB5D /* PostTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639128DC234326280055BB5D /* PostTextTableViewCell.swift */; };
+		639128DF234326280055BB5D /* PostTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639128DD234326280055BB5D /* PostTextTableViewCell.xib */; };
+		639CFBBD23458BA300453BDA /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639CFBBC23458BA300453BDA /* UIImageView+Extension.swift */; };
+		639CFBC12345905900453BDA /* ImageCacheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639CFBC02345905900453BDA /* ImageCacheViewController.swift */; };
+		639CFBC4234591DA00453BDA /* TableCacheImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639CFBC2234591DA00453BDA /* TableCacheImageTableViewCell.swift */; };
+		639CFBC5234591DA00453BDA /* TableCacheImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639CFBC3234591DA00453BDA /* TableCacheImageTableViewCell.xib */; };
+		639CFBCD23471C4C00453BDA /* TouchFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639CFBCB23471C4C00453BDA /* TouchFeedTableViewCell.swift */; };
+		639CFBCE23471C4C00453BDA /* TouchFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639CFBCC23471C4C00453BDA /* TouchFeedTableViewCell.xib */; };
+		639CFBD023471C6900453BDA /* TouchFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639CFBCF23471C6900453BDA /* TouchFeedViewController.swift */; };
 		639D81AB2334C15A0092557B /* KeyboardDisplayTextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639D81AA2334C15A0092557B /* KeyboardDisplayTextFieldViewController.swift */; };
 		63BDD6F3231779FF00DC6F40 /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BDD6F2231779FF00DC6F40 /* ChatRoomViewController.swift */; };
 		63BDD6F72317B93C00DC6F40 /* ChatRoomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BDD6F62317B93C00DC6F40 /* ChatRoomInputView.swift */; };
 		63BDD6F92317B95300DC6F40 /* ChatRoomInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63BDD6F82317B95300DC6F40 /* ChatRoomInputView.xib */; };
+		63ED5267235AFFCC00D6BAEC /* MultiSelectmageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ED5266235AFFCC00D6BAEC /* MultiSelectmageViewController.swift */; };
 		8C8C93EC5366E6451B115C6B /* Pods_PracticeTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE75877A0C8B01E0CF67800 /* Pods_PracticeTableView.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +93,6 @@
 		06FD08E4727A3767A861D363 /* Pods-PracticeTableViewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeTableViewUITests.debug.xcconfig"; path = "Target Support Files/Pods-PracticeTableViewUITests/Pods-PracticeTableViewUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		21ED470E3C15061E0668A3DA /* Pods-PracticeTableView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeTableView.release.xcconfig"; path = "Target Support Files/Pods-PracticeTableView/Pods-PracticeTableView.release.xcconfig"; sourceTree = "<group>"; };
 		3EE75877A0C8B01E0CF67800 /* Pods_PracticeTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PracticeTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		631E5483231F50E300416B77 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		631E5485231F518500416B77 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		6320F43A232680E9006A92D8 /* SwiftValidator+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftValidator+Extension.swift"; sourceTree = "<group>"; };
 		6320F43E2326AA44006A92D8 /* InputTextFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextFormViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +110,9 @@
 		6344096D22F1738B00F64C99 /* PracticeTableViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PracticeTableViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6344097122F1738B00F64C99 /* PracticeTableViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeTableViewUITests.swift; sourceTree = "<group>"; };
 		6344097322F1738B00F64C99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63484A1C242C81230029B2E5 /* PickerKeyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PickerKeyboard.storyboard; sourceTree = "<group>"; };
+		63484A1E242C815B0029B2E5 /* PickerKeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerKeyboardViewController.swift; sourceTree = "<group>"; };
+		63484A21242C81B10029B2E5 /* PickerKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerKeyboard.swift; sourceTree = "<group>"; };
 		6367BE3C23265172000AF813 /* ValidateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateViewController.swift; sourceTree = "<group>"; };
 		6379152B23193AEB00E604A9 /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
 		6379152D23193B0200E604A9 /* SampleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleView.xib; sourceTree = "<group>"; };
@@ -100,10 +129,35 @@
 		63840AAB2327845C00E9E682 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		63840AAD23278E1900E9E682 /* Registrable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registrable.swift; sourceTree = "<group>"; };
 		63840AAF232F5E0E00E9E682 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		639128A2233881450055BB5D /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		639128A3233881450055BB5D /* ImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
+		639128A62338844C0055BB5D /* ImageListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListTableViewCell.swift; sourceTree = "<group>"; };
+		639128A72338844C0055BB5D /* ImageListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageListTableViewCell.xib; sourceTree = "<group>"; };
+		639128B6233C5B110055BB5D /* Kingfisher+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kingfisher+Extension.swift"; sourceTree = "<group>"; };
+		639128B8233C83280055BB5D /* OwnTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnTableView.swift; sourceTree = "<group>"; };
+		639128C3233F700F0055BB5D /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
+		639128C5233F70B10055BB5D /* PickerImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerImageTableViewCell.swift; sourceTree = "<group>"; };
+		639128C6233F70B10055BB5D /* PickerImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerImageTableViewCell.xib; sourceTree = "<group>"; };
+		639128CD233F71CD0055BB5D /* PostImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostImageTableViewCell.xib; sourceTree = "<group>"; };
+		639128CE233F71CD0055BB5D /* PostImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostImageTableViewCell.swift; sourceTree = "<group>"; };
+		639128D22342552A0055BB5D /* MaterialInkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialInkViewController.swift; sourceTree = "<group>"; };
+		639128D6234325710055BB5D /* LikePostQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePostQuestionViewController.swift; sourceTree = "<group>"; };
+		639128D8234326060055BB5D /* PostPickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPickerTableViewCell.swift; sourceTree = "<group>"; };
+		639128D9234326060055BB5D /* PostPickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostPickerTableViewCell.xib; sourceTree = "<group>"; };
+		639128DC234326280055BB5D /* PostTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTextTableViewCell.swift; sourceTree = "<group>"; };
+		639128DD234326280055BB5D /* PostTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTextTableViewCell.xib; sourceTree = "<group>"; };
+		639CFBBC23458BA300453BDA /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		639CFBC02345905900453BDA /* ImageCacheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheViewController.swift; sourceTree = "<group>"; };
+		639CFBC2234591DA00453BDA /* TableCacheImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCacheImageTableViewCell.swift; sourceTree = "<group>"; };
+		639CFBC3234591DA00453BDA /* TableCacheImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableCacheImageTableViewCell.xib; sourceTree = "<group>"; };
+		639CFBCB23471C4C00453BDA /* TouchFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchFeedTableViewCell.swift; sourceTree = "<group>"; };
+		639CFBCC23471C4C00453BDA /* TouchFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TouchFeedTableViewCell.xib; sourceTree = "<group>"; };
+		639CFBCF23471C6900453BDA /* TouchFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchFeedViewController.swift; sourceTree = "<group>"; };
 		639D81AA2334C15A0092557B /* KeyboardDisplayTextFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDisplayTextFieldViewController.swift; sourceTree = "<group>"; };
 		63BDD6F2231779FF00DC6F40 /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
 		63BDD6F62317B93C00DC6F40 /* ChatRoomInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomInputView.swift; sourceTree = "<group>"; };
 		63BDD6F82317B95300DC6F40 /* ChatRoomInputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatRoomInputView.xib; sourceTree = "<group>"; };
+		63ED5266235AFFCC00D6BAEC /* MultiSelectmageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectmageViewController.swift; sourceTree = "<group>"; };
 		7D7472B09C63D3F65BC1BE01 /* Pods-PracticeTableViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeTableViewTests.debug.xcconfig"; path = "Target Support Files/Pods-PracticeTableViewTests/Pods-PracticeTableViewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9C9E13CA3C8C5AD02E779B4A /* Pods-PracticeTableViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeTableViewTests.release.xcconfig"; path = "Target Support Files/Pods-PracticeTableViewTests/Pods-PracticeTableViewTests.release.xcconfig"; sourceTree = "<group>"; };
 		D9A5E665D88C336EA8876F45 /* Pods-PracticeTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeTableView.debug.xcconfig"; path = "Target Support Files/Pods-PracticeTableView/Pods-PracticeTableView.debug.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +209,7 @@
 		6320F43C2326A755006A92D8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				639128C3233F700F0055BB5D /* ImagePickerViewController.swift */,
 				6320F43E2326AA44006A92D8 /* InputTextFormViewController.swift */,
 				6344095322F1738900F64C99 /* ViewController.swift */,
 				63BDD6F2231779FF00DC6F40 /* ChatRoomViewController.swift */,
@@ -165,13 +220,16 @@
 				6379152F2319429400E604A9 /* InputFormViewController.swift */,
 				63791531231942F100E604A9 /* InputFormView.swift */,
 				6379154C231D435C00E604A9 /* ImageViewController.swift */,
-				631E5483231F50E300416B77 /* File.swift */,
 				631E5485231F518500416B77 /* FeedbackViewController.swift */,
 				6367BE3C23265172000AF813 /* ValidateViewController.swift */,
-				63840AA2232762A700E9E682 /* ContainerFormViewController.swift */,
 				63840AA42327655D00E9E682 /* MessageInputViewController.swift */,
 				639D81AA2334C15A0092557B /* KeyboardDisplayTextFieldViewController.swift */,
 				6327BA8B233638DE005DBC95 /* ImageTableViewController.swift */,
+				639128D22342552A0055BB5D /* MaterialInkViewController.swift */,
+				639128D6234325710055BB5D /* LikePostQuestionViewController.swift */,
+				639CFBC02345905900453BDA /* ImageCacheViewController.swift */,
+				639CFBCF23471C6900453BDA /* TouchFeedViewController.swift */,
+				63ED5266235AFFCC00D6BAEC /* MultiSelectmageViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,8 +237,25 @@
 		6320F43D2326A799006A92D8 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				639CFBCB23471C4C00453BDA /* TouchFeedTableViewCell.swift */,
+				639CFBCC23471C4C00453BDA /* TouchFeedTableViewCell.xib */,
+				639128DC234326280055BB5D /* PostTextTableViewCell.swift */,
+				63840AA2232762A700E9E682 /* ContainerFormViewController.swift */,
+				639128DD234326280055BB5D /* PostTextTableViewCell.xib */,
+				639128D8234326060055BB5D /* PostPickerTableViewCell.swift */,
+				639128D9234326060055BB5D /* PostPickerTableViewCell.xib */,
+				639128CE233F71CD0055BB5D /* PostImageTableViewCell.swift */,
+				639128CD233F71CD0055BB5D /* PostImageTableViewCell.xib */,
 				6379154E231D440A00E604A9 /* ImageCollectionViewCell.swift */,
 				6379154F231D440A00E604A9 /* ImageCollectionViewCell.xib */,
+				639128A2233881450055BB5D /* ImageTableViewCell.swift */,
+				639128A3233881450055BB5D /* ImageTableViewCell.xib */,
+				639128A62338844C0055BB5D /* ImageListTableViewCell.swift */,
+				639128A72338844C0055BB5D /* ImageListTableViewCell.xib */,
+				639128C5233F70B10055BB5D /* PickerImageTableViewCell.swift */,
+				639128C6233F70B10055BB5D /* PickerImageTableViewCell.xib */,
+				639CFBC2234591DA00453BDA /* TableCacheImageTableViewCell.swift */,
+				639CFBC3234591DA00453BDA /* TableCacheImageTableViewCell.xib */,
 			);
 			name = CustomCells;
 			path = PracticeTableView/CustomCells;
@@ -212,15 +287,13 @@
 			isa = PBXGroup;
 			children = (
 				6344095122F1738900F64C99 /* AppDelegate.swift */,
-				6344095522F1738900F64C99 /* Main.storyboard */,
-				6344095822F1738B00F64C99 /* Assets.xcassets */,
-				63840AA623277A2700E9E682 /* Extension */,
-				6344095A22F1738B00F64C99 /* LaunchScreen.storyboard */,
 				6344095D22F1738B00F64C99 /* Info.plist */,
-				6320F43C2326A755006A92D8 /* Views */,
+				63484A16242C7FA90029B2E5 /* Asset */,
+				63484A15242C7F830029B2E5 /* Presentation */,
 				6320F43D2326A799006A92D8 /* CustomCells */,
-				63840AAB2327845C00E9E682 /* Const.swift */,
-				63840AAD23278E1900E9E682 /* Registrable.swift */,
+				63484A17242C7FEE0029B2E5 /* Utility */,
+				63484A18242C7FF60029B2E5 /* Configuration */,
+				63484A19242C80160029B2E5 /* Model */,
 			);
 			path = PracticeTableView;
 			sourceTree = "<group>";
@@ -243,6 +316,77 @@
 			path = PracticeTableViewUITests;
 			sourceTree = "<group>";
 		};
+		63484A15242C7F830029B2E5 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				6344095522F1738900F64C99 /* Main.storyboard */,
+				6344095A22F1738B00F64C99 /* LaunchScreen.storyboard */,
+				63484A1A242C808E0029B2E5 /* Scene */,
+				6320F43C2326A755006A92D8 /* Views */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		63484A16242C7FA90029B2E5 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				6344095822F1738B00F64C99 /* Assets.xcassets */,
+			);
+			path = Asset;
+			sourceTree = "<group>";
+		};
+		63484A17242C7FEE0029B2E5 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				63840AA623277A2700E9E682 /* Extension */,
+				639128B8233C83280055BB5D /* OwnTableView.swift */,
+				63840AAB2327845C00E9E682 /* Const.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		63484A18242C7FF60029B2E5 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Configuration;
+			path = PracticeTableView/Configuration;
+			sourceTree = SOURCE_ROOT;
+		};
+		63484A19242C80160029B2E5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				63840AAD23278E1900E9E682 /* Registrable.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		63484A1A242C808E0029B2E5 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				63484A1B242C80D40029B2E5 /* PickerKeyboard */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		63484A1B242C80D40029B2E5 /* PickerKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				63484A20242C81980029B2E5 /* Component */,
+				63484A1C242C81230029B2E5 /* PickerKeyboard.storyboard */,
+				63484A1E242C815B0029B2E5 /* PickerKeyboardViewController.swift */,
+			);
+			path = PickerKeyboard;
+			sourceTree = "<group>";
+		};
+		63484A20242C81980029B2E5 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				63484A21242C81B10029B2E5 /* PickerKeyboard.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		63840AA623277A2700E9E682 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +395,8 @@
 				63840AA723277A4C00E9E682 /* UIView+Extension.swift */,
 				63840AA923277F3700E9E682 /* UIViewController+Extension.swift */,
 				63840AAF232F5E0E00E9E682 /* UIImage+Extension.swift */,
+				639128B6233C5B110055BB5D /* Kingfisher+Extension.swift */,
+				639CFBBC23458BA300453BDA /* UIImageView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -373,12 +519,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				639128A5233881450055BB5D /* ImageTableViewCell.xib in Resources */,
+				63484A1D242C81230029B2E5 /* PickerKeyboard.storyboard in Resources */,
 				6344095C22F1738B00F64C99 /* LaunchScreen.storyboard in Resources */,
 				6379152E23193B0300E604A9 /* SampleView.xib in Resources */,
 				6344095922F1738B00F64C99 /* Assets.xcassets in Resources */,
 				63BDD6F92317B95300DC6F40 /* ChatRoomInputView.xib in Resources */,
+				639128A92338844C0055BB5D /* ImageListTableViewCell.xib in Resources */,
+				639128C8233F70B10055BB5D /* PickerImageTableViewCell.xib in Resources */,
 				63791551231D440A00E604A9 /* ImageCollectionViewCell.xib in Resources */,
+				639128DF234326280055BB5D /* PostTextTableViewCell.xib in Resources */,
+				639CFBCE23471C4C00453BDA /* TouchFeedTableViewCell.xib in Resources */,
 				6344095722F1738900F64C99 /* Main.storyboard in Resources */,
+				639CFBC5234591DA00453BDA /* TableCacheImageTableViewCell.xib in Resources */,
+				639128DB234326060055BB5D /* PostPickerTableViewCell.xib in Resources */,
+				639128CF233F71CD0055BB5D /* PostImageTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,27 +647,45 @@
 				6379152C23193AEB00E604A9 /* SampleView.swift in Sources */,
 				6379154D231D435C00E604A9 /* ImageViewController.swift in Sources */,
 				637915302319429400E604A9 /* InputFormViewController.swift in Sources */,
+				639128D0233F71CD0055BB5D /* PostImageTableViewCell.swift in Sources */,
 				6344095422F1738900F64C99 /* ViewController.swift in Sources */,
+				639CFBCD23471C4C00453BDA /* TouchFeedTableViewCell.swift in Sources */,
 				63840AAE23278E1900E9E682 /* Registrable.swift in Sources */,
+				639128DE234326280055BB5D /* PostTextTableViewCell.swift in Sources */,
 				63840AA52327655D00E9E682 /* MessageInputViewController.swift in Sources */,
 				63791532231942F100E604A9 /* InputFormView.swift in Sources */,
+				63484A1F242C815B0029B2E5 /* PickerKeyboardViewController.swift in Sources */,
+				639128A4233881450055BB5D /* ImageTableViewCell.swift in Sources */,
 				63BDD6F3231779FF00DC6F40 /* ChatRoomViewController.swift in Sources */,
+				639128D32342552A0055BB5D /* MaterialInkViewController.swift in Sources */,
 				63840AA3232762A700E9E682 /* ContainerFormViewController.swift in Sources */,
+				639CFBC4234591DA00453BDA /* TableCacheImageTableViewCell.swift in Sources */,
+				639128C4233F70100055BB5D /* ImagePickerViewController.swift in Sources */,
 				63840AB0232F5E0E00E9E682 /* UIImage+Extension.swift in Sources */,
 				63840AAA23277F3700E9E682 /* UIViewController+Extension.swift in Sources */,
 				63840AAC2327845C00E9E682 /* Const.swift in Sources */,
 				6320F43F2326AA44006A92D8 /* InputTextFormViewController.swift in Sources */,
+				639128DA234326060055BB5D /* PostPickerTableViewCell.swift in Sources */,
+				639128D7234325710055BB5D /* LikePostQuestionViewController.swift in Sources */,
+				639128B7233C5B110055BB5D /* Kingfisher+Extension.swift in Sources */,
 				63791550231D440A00E604A9 /* ImageCollectionViewCell.swift in Sources */,
 				631E5486231F518500416B77 /* FeedbackViewController.swift in Sources */,
 				6367BE3D23265172000AF813 /* ValidateViewController.swift in Sources */,
 				63840AA823277A4C00E9E682 /* UIView+Extension.swift in Sources */,
 				63BDD6F72317B93C00DC6F40 /* ChatRoomInputView.swift in Sources */,
+				639128C7233F70B10055BB5D /* PickerImageTableViewCell.swift in Sources */,
+				639CFBC12345905900453BDA /* ImageCacheViewController.swift in Sources */,
+				639128B9233C83280055BB5D /* OwnTableView.swift in Sources */,
+				639128A82338844C0055BB5D /* ImageListTableViewCell.swift in Sources */,
 				6320F43B232680E9006A92D8 /* SwiftValidator+Extension.swift in Sources */,
+				63484A22242C81B10029B2E5 /* PickerKeyboard.swift in Sources */,
+				639CFBBD23458BA300453BDA /* UIImageView+Extension.swift in Sources */,
+				63ED5267235AFFCC00D6BAEC /* MultiSelectmageViewController.swift in Sources */,
 				6327BA8C233638DE005DBC95 /* ImageTableViewController.swift in Sources */,
 				6344095222F1738900F64C99 /* AppDelegate.swift in Sources */,
 				639D81AB2334C15A0092557B /* KeyboardDisplayTextFieldViewController.swift in Sources */,
-				631E5484231F50E300416B77 /* File.swift in Sources */,
 				63791534231944B300E604A9 /* UIColor+Extension.swift in Sources */,
+				639CFBD023471C6900453BDA /* TouchFeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
