@@ -56,14 +56,14 @@ IB_DESIGNABLE
 @property(nonatomic, assign, getter=isAnimating) BOOL animating;
 
 /**
- Spinner radius width. Defaults to 12dp (24x24dp circle), constrained to range [5dp, 72dp]. The
- spinner is centered in the view's bounds. If the bounds are smaller than the diameter of the
- spinner, the spinner may be clipped when clipToBounds is true.
+ Spinner radius width. Defaults to 12dp (24x24dp circle), with a minimum of 5dp. The spinner is
+ centered in the view's bounds. If the bounds are smaller than the diameter of the spinner, the
+ spinner may be clipped when clipToBounds is true.
  */
 @property(nonatomic, assign) CGFloat radius UI_APPEARANCE_SELECTOR;
 
 /**
- Spinner stroke width. Defaults to 2dp.
+ Spinner stroke width. Defaults to 2.5.
  */
 @property(nonatomic, assign) CGFloat strokeWidth UI_APPEARANCE_SELECTOR;
 
@@ -147,32 +147,6 @@ IB_DESIGNABLE
      UITraitCollection *_Nullable previousTraitCollection);
 
 @end
-
-/**
- Delegate protocol for the MDCActivityIndicator.
- */
-@protocol MDCActivityIndicatorDelegate <NSObject>
-
-@optional
-/**
- When stop is called, the spinner gracefully animates out using opacity and stroke width.
- This method is called after that fade-out animation completes.
-
- @param activityIndicator Caller
- */
-- (void)activityIndicatorAnimationDidFinish:(nonnull MDCActivityIndicator *)activityIndicator;
-
-/**
- When setIndicatorMode:animated: is called the spinner animates the transition from the current
- mode to the new mode. This method is called after the animation completes or immediately if no
- animation is requested.
-
- @param activityIndicator Caller
- */
-- (void)activityIndicatorModeTransitionDidFinish:(nonnull MDCActivityIndicator *)activityIndicator;
-
-@end
-
 typedef void (^MDCActivityIndicatorAnimation)(CGFloat strokeStart, CGFloat strokeEnd);
 
 /**

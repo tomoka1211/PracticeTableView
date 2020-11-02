@@ -20,6 +20,8 @@ target 'PracticeTableView' do
   pod 'MaterialComponents'
   pod 'SDWebImage'
   pod "TLPhotoPicker"
+  pod 'ReactorKit'
+  pod 'Instantiate'
 
   target 'PracticeTableViewTests' do
     inherit! :search_paths

@@ -138,11 +138,47 @@ public struct TLPHAsset {
         return nil
     }
     
+    private func tempCopyLivePhotos(phAsset: PHAsset,
+                                    livePhotoRequestOptions: PHLivePhotoRequestOptions? = nil,
+                                    localURL: URL,
+                                    completionBlock:@escaping (() -> Void)) -> PHImageRequestID? {
+        var requestOptions = PHLivePhotoRequestOptions()
+        if let options = livePhotoRequestOptions {
+            requestOptions = options
+        }else {
+            requestOptions.isNetworkAccessAllowed = true
+        }
+        return PHImageManager.default().requestLivePhoto(for: phAsset,
+                                                         targetSize: UIScreen.main.bounds.size,
+                                                         contentMode: .default,
+                                                         options: requestOptions)
+        { (livePhotos, infoDict) in
+            if let livePhotos = livePhotos {
+                let assetResources = PHAssetResource.assetResources(for: livePhotos)
+                assetResources.forEach { (resource) in
+                    if resource.type == .pairedVideo {
+                        PHAssetResourceManager.default().writeData(for: resource, toFile: localURL, options: nil) { (error) in
+                            DispatchQueue.main.async {
+                                completionBlock()
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     @discardableResult
     //convertLivePhotosToJPG
     // false : If you want mov file at live photos
     // true  : If you want png file at live photos ( HEIC )
-    public func tempCopyMediaFile(videoRequestOptions: PHVideoRequestOptions? = nil, imageRequestOptions: PHImageRequestOptions? = nil, exportPreset: String = AVAssetExportPresetHighestQuality, convertLivePhotosToJPG: Bool = false, progressBlock:((Double) -> Void)? = nil, completionBlock:@escaping ((URL,String) -> Void)) -> PHImageRequestID? {
+    public func tempCopyMediaFile(videoRequestOptions: PHVideoRequestOptions? = nil,
+                                  imageRequestOptions: PHImageRequestOptions? = nil,
+                                  livePhotoRequestOptions: PHLivePhotoRequestOptions? = nil,
+                                  exportPreset: String = AVAssetExportPresetHighestQuality,
+                                  convertLivePhotosToJPG: Bool = false,
+                                  progressBlock:((Double) -> Void)? = nil,
+                                  completionBlock:@escaping ((URL,String) -> Void)) -> PHImageRequestID? {
         guard let phAsset = self.phAsset else { return nil }
         var type: PHAssetResourceType? = nil
         if phAsset.mediaSubtypes.contains(.photoLive) == true, convertLivePhotosToJPG == false {
@@ -158,13 +194,13 @@ public struct TLPHAsset {
         } else {
             writeURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true).appendingPathComponent("\(fileName)")
         }
-        if (writeURL?.pathExtension.uppercased() == "HEIC" || writeURL?.pathExtension.uppercased() == "HEIF") && convertLivePhotosToJPG {
-            if let fileName2 = writeURL?.deletingPathExtension().lastPathComponent {
-                writeURL?.deleteLastPathComponent()
-                writeURL?.appendPathComponent("\(fileName2).jpg")
-            }
+        guard var localURL = writeURL,var mimetype = MIMEType(writeURL) else { return nil }
+        if type == .pairedVideo {
+            return tempCopyLivePhotos(phAsset: phAsset,
+                                      livePhotoRequestOptions: livePhotoRequestOptions,
+                                      localURL: localURL,
+                                      completionBlock: { completionBlock(localURL, mimetype) })
         }
-        guard let localURL = writeURL,let mimetype = MIMEType(writeURL) else { return nil }
         switch phAsset.mediaType {
         case .video:
             var requestOptions = PHVideoRequestOptions()
@@ -179,7 +215,10 @@ public struct TLPHAsset {
                     progressBlock?(progress)
                 }
             }
-            return PHImageManager.default().requestExportSession(forVideo: phAsset, options: requestOptions, exportPreset: exportPreset) { (session, infoDict) in
+            return PHImageManager.default().requestExportSession(forVideo: phAsset,
+                                                                 options: requestOptions,
+                                                                 exportPreset: exportPreset)
+            { (session, infoDict) in
                 session?.outputURL = localURL
                 session?.outputFileType = AVFileType.mov
                 session?.exportAsynchronously(completionHandler: {
@@ -201,10 +240,18 @@ public struct TLPHAsset {
                     progressBlock?(progress)
                 }
             }
-            return PHImageManager.default().requestImageData(for: phAsset, options: requestOptions, resultHandler: { (data, uti, orientation, info) in
+            return PHImageManager.default().requestImageData(for: phAsset,
+                                                             options: requestOptions)
+            { (data, uti, orientation, info) in
                 do {
                     var data = data
                     let needConvertLivePhotoToJPG = phAsset.mediaSubtypes.contains(.photoLive) == true && convertLivePhotosToJPG == true
+                    if needConvertLivePhotoToJPG {
+                        let name = localURL.deletingPathExtension().lastPathComponent
+                        localURL.deleteLastPathComponent()
+                        localURL.appendPathComponent("\(name).jpg")
+                        mimetype = "image/jpeg"
+                    }
                     if needConvertLivePhotoToJPG, let imgData = data, let rawImage = UIImage(data: imgData)?.upOrientationImage() {
                         data = rawImage.jpegData(compressionQuality: 1)
                     }
@@ -213,7 +260,7 @@ public struct TLPHAsset {
                         completionBlock(localURL, mimetype)
                     }
                 }catch { }
-            })
+            }
         default:
             return nil
         }
@@ -339,6 +386,18 @@ public struct TLAssetsCollection {
             guard let result = self.fetchResult, index < result.count else { return nil }
             return TLPHAsset(asset: result.object(at: max(index,0)))
         }
+    }
+    
+    func findIndex(phAsset: PHAsset) -> IndexPath? {
+        guard let sections = self.sections else {
+            return nil
+        }
+        for (offset, section) in sections.enumerated() {
+            if let index = section.assets.firstIndex(where: { $0.phAsset == phAsset }) {
+                return IndexPath(row: index, section: offset)
+            }
+        }
+        return nil
     }
     
     mutating func reloadSection(groupedBy: PHFetchedResultGroupedBy) {

@@ -14,6 +14,8 @@
 
 #import "MDCDraggableView.h"
 
+#import "MDCDraggableViewDelegate.h"
+
 static void CancelGestureRecognizer(UIGestureRecognizer *gesture) {
   if (gesture.enabled) {
     // Setting enabled to NO while a gesture recognizer is currently recognizing a gesture will
@@ -104,6 +106,15 @@ static void CancelGestureRecognizer(UIGestureRecognizer *gesture) {
     return YES;
   }
   return NO;
+}
+
+// Disable pan gesture on UIControl
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+       shouldReceiveTouch:(UITouch *)touch {
+  if ([touch.view isKindOfClass:[UIControl class]]) {
+    return NO;
+  }
+  return YES;
 }
 
 @end

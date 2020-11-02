@@ -29,6 +29,7 @@ TLPhotoPicker enables application to pick images and videos from multiple smart 
 - custom display and selection rules
 - reload of changes that occur in the Photos library.
 - support iCloud Photo Library
+- adds long press preview to images. ( to @smeshko ) [Preview](https://github.com/tilltue/TLPhotoPicker/pull/252#issue-362005178)
 
 | Smart album collection | LivePhotoCell | VideoPhotoCell  | PhotoCell | CustomCell(instagram) |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
@@ -67,9 +68,25 @@ Specify TLPhotoPicker into your project's Cartfile:
 github "tilltue/TLPhotoPicker"
 ```
 
+### Swift Package Manager
+
+The Swift Package Manager is a tool for automating the distribution of Swift code and is integrated into the swift compiler. It is in early development, but TLPhotoPicker does support its use on supported platforms.
+
+Once you have your Swift package set up, adding Alamofire as a dependency is as easy as adding it to the dependencies value of your Package.swift.
+
+```
+dependencies: [
+    .package(url: "https://github.com/tilltue/TLPhotoPicker.git", .upToNextMajor(from: "2.1.0"))
+]
+```
 
 > Don't forget the Privacy Description in `info.plist`.
 <img src="./Images/Privacy.png">
+
+> iOS 14
+> You can suppress the automatic prompting from the system by setting this key to yes in your apps info plist.
+> PHPhotoLibraryPreventAutomaticLimitedAccessAlert = YES
+https://developer.apple.com/videos/play/wwdc2020/10641/
 
 ## Usage 
 
@@ -88,9 +105,10 @@ class ViewController: UIViewController,TLPhotosPickerViewControllerDelegate {
         self.present(viewController, animated: true, completion: nil)
     }
     //TLPhotosPickerViewControllerDelegate
-    func dismissPhotoPicker(withTLPHAssets: [TLPHAsset]) {
+    func shouldDismissPhotoPicker(withTLPHAssets: [TLPHAsset]) -> Bool {
         // use selected order, fullresolution image
         self.selectedAssets = withTLPHAssets
+	return true
     }
     func dismissPhotoPicker(withPHAssets: [PHAsset]) {
         // if you want to used phasset. 
@@ -242,7 +260,13 @@ public struct TLPHAsset {
     // parmeter : convertLivePhotosToJPG
     // false : If you want mov file at live photos
     // true  : If you want png file at live photos ( HEIC )
-    public func tempCopyMediaFile(videoRequestOptions: PHVideoRequestOptions? = nil, imageRequestOptions: PHImageRequestOptions? = nil, exportPreset: String = AVAssetExportPresetHighestQuality, convertLivePhotosToJPG: Bool = false, progressBlock:((Double) -> Void)? = nil, completionBlock:@escaping ((URL,String) -> Void)) -> PHImageRequestID?
+    public func tempCopyMediaFile(videoRequestOptions: PHVideoRequestOptions? = nil, 
+                                  imageRequestOptions: PHImageRequestOptions? = nil,
+                                  livePhotoRequestOptions: PHLivePhotoRequestOptions? = nil,
+                                  exportPreset: String = AVAssetExportPresetHighestQuality, 
+                                  convertLivePhotosToJPG: Bool = false, 
+                                  progressBlock:((Double) -> Void)? = nil, 
+                                  completionBlock:@escaping ((URL,String) -> Void)) -> PHImageRequestID?
     //Apparently, This is not the only way to export video.
     //There is many way that export a video.
     //This method was one of them.
@@ -275,14 +299,17 @@ public struct TLPhotosPickerConfigure {
     public var emptyImage: UIImage? = nil
     public var usedCameraButton = true
     public var usedPrefetch = false
+    public var previewAtForceTouch = false
     public var allowedLivePhotos = true
     public var allowedVideo = true
     public var allowedAlbumCloudShared = false
+    public var allowedPhotograph = true // for camera : allow this option when you want to take a photos
     public var allowedVideoRecording = true //for camera : allow this option when you want to recording video.
     public var recordingVideoQuality: UIImagePickerControllerQualityType = .typeMedium //for camera : recording video quality
     public var maxVideoDuration:TimeInterval? = nil //for camera : max video recording duration
     public var autoPlay = true
     public var muteAudio = true
+    public var preventAutomaticLimitedAccessAlert = true // newest iOS 14
     public var mediaType: PHAssetMediaType? = nil
     public var numberOfColumn = 3
     public var singleSelectedMode = false

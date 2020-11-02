@@ -19,7 +19,6 @@
 #import <MDFInternationalization/MDFInternationalization.h>
 
 #import "MaterialInk.h"
-#import "MaterialMath.h"
 #import "MaterialTypography.h"
 
 #import "private/MDCSelfSizingStereoCellLayout.h"
@@ -75,10 +74,6 @@ static const CGFloat kDetailColorOpacity = (CGFloat)0.6;
   self.cachedLayouts = [[NSMutableDictionary alloc] init];
   _adjustsFontForContentSizeCategoryWhenScaledFontIsUnavailable = YES;
   [self createSubviews];
-}
-
-- (void)dealloc {
-  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark Setup
@@ -174,7 +169,7 @@ static const CGFloat kDetailColorOpacity = (CGFloat)0.6;
 #pragma mark Layout
 
 - (MDCSelfSizingStereoCellLayout *)layoutForCellWidth:(CGFloat)cellWidth {
-  CGFloat flooredCellWidth = MDCFloor(cellWidth);
+  CGFloat flooredCellWidth = floor(cellWidth);
   MDCSelfSizingStereoCellLayout *layout = self.cachedLayouts[@(flooredCellWidth)];
   if (!layout) {
     layout = [[MDCSelfSizingStereoCellLayout alloc] initWithLeadingImageView:self.leadingImageView

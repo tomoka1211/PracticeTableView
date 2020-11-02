@@ -14,20 +14,58 @@
 
 #import "MDCActionSheetController.h"
 
-#import "MaterialMath.h"
-#import "MaterialShadowElevations.h"
-#import "MaterialTypography.h"
 #import "private/MDCActionSheetHeaderView.h"
 #import "private/MDCActionSheetItemTableViewCell.h"
+#import "private/MaterialActionSheetStrings.h"
+#import "private/MaterialActionSheetStrings_table.h"
+#import "MDCActionSheetControllerDelegate.h"
+#import "MaterialAvailability.h"
+#import "MaterialShadowElevations.h"
+#import "MaterialTypography.h"
+#import "MaterialMath.h"
 
 static NSString *const kReuseIdentifier = @"BaseCell";
 static const CGFloat kActionImageAlpha = (CGFloat)0.6;
 static const CGFloat kActionTextAlpha = (CGFloat)0.87;
 static const CGFloat kDividerDefaultAlpha = (CGFloat)0.12;
 
+// The Bundle for string resources.
+static NSString *const kMaterialActionSheetBundle = @"MaterialActionSheet.bundle";
+
+@interface MDCActionSheetController () <MDCBottomSheetPresentationControllerDelegate,
+                                        UITableViewDelegate,
+                                        UITableViewDataSource>
+@property(nonatomic, strong) UITableView *tableView;
+@property(nonatomic, strong) MDCActionSheetHeaderView *header;
+
+/** The view that divides the header from the table. */
+@property(nonatomic, strong, nonnull) UIView *headerDividerView;
+
+/**
+ Determines if a @c MDCActionSheetItemTableViewCell should add leading padding or not.
+
+ @note Defaults to @c NO.
+ */
+@property(nonatomic, assign) BOOL addLeadingPaddingToCell;
+
+/**
+ Reloads the tables data and does a layout pass.
+ */
+- (void)updateTable;
+
+@end
+
 @interface MDCActionSheetAction ()
 
 @property(nonatomic, nullable, copy) MDCActionSheetHandler completionHandler;
+
+/**
+ The @c MDCActionSheetController responsible for presenting the action.
+
+ @note This is only set when the @c MDCActionSheetController's view is in the heirarchy else it is
+ @c nil.
+ */
+@property(nonatomic, weak, nullable) MDCActionSheetController *actionSheet;
 
 @end
 
@@ -47,6 +85,7 @@ static const CGFloat kDividerDefaultAlpha = (CGFloat)0.12;
     _title = [title copy];
     _image = [image copy];
     _completionHandler = [handler copy];
+    _dividerColor = UIColor.clearColor;
   }
   return self;
 }
@@ -59,26 +98,18 @@ static const CGFloat kDividerDefaultAlpha = (CGFloat)0.12;
   action.accessibilityLabel = self.accessibilityLabel;
   action.titleColor = self.titleColor;
   action.tintColor = self.tintColor;
+  action.dividerColor = self.dividerColor;
+  action.showsDivider = self.showsDivider;
   return action;
 }
 
-@end
+- (void)setImage:(UIImage *)image {
+  _image = image;
+  if (self.actionSheet) {
+    [self.actionSheet updateTable];
+  }
+}
 
-@interface MDCActionSheetController () <MDCBottomSheetPresentationControllerDelegate,
-                                        UITableViewDelegate,
-                                        UITableViewDataSource>
-@property(nonatomic, strong) UITableView *tableView;
-@property(nonatomic, strong) MDCActionSheetHeaderView *header;
-
-/** The view that divides the header from the table. */
-@property(nonatomic, strong, nonnull) UIView *headerDividerView;
-
-/**
- Determines if a @c MDCActionSheetItemTableViewCell should add leading padding or not.
-
- @note Defaults to @c NO.
- */
-@property(nonatomic, assign) BOOL addLeadingPaddingToCell;
 @end
 
 @implementation MDCActionSheetController {
@@ -145,17 +176,22 @@ static const CGFloat kDividerDefaultAlpha = (CGFloat)0.12;
   return self;
 }
 
-- (void)dealloc {
-  [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 - (void)addAction:(MDCActionSheetAction *)action {
   [_actions addObject:action];
+  if (self.alwaysAlignTitleLeadingEdges && action.image) {
+    self.addLeadingPaddingToCell = YES;
+  }
   [self updateTable];
 }
 
 - (NSArray<MDCActionSheetAction *> *)actions {
   return [_actions copy];
+}
+
+- (void)loadView {
+  [super loadView];
+
+  self.mdc_bottomSheetPresentationController.delegate = self;
 }
 
 - (void)viewDidLoad {
@@ -172,10 +208,16 @@ static const CGFloat kDividerDefaultAlpha = (CGFloat)0.12;
   [self.view addSubview:self.tableView];
   [self.view addSubview:self.header];
   [self.view addSubview:self.headerDividerView];
+
+  NSString *key =
+      kMaterialActionSheetStringTable[kStr_MaterialActionSheetPresentedAccessibilityAnnouncement];
+  NSString *announcement = NSLocalizedStringFromTableInBundle(
+      key, kMaterialActionSheetStringsTableName, [[self class] bundle], @"Alert");
+  UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, announcement);
 }
 
-- (void)viewWillLayoutSubviews {
-  [super viewWillLayoutSubviews];
+- (void)viewDidLayoutSubviews {
+  [super viewDidLayoutSubviews];
 
   if (self.tableView.contentSize.height > (CGRectGetHeight(self.view.bounds) / 2)) {
     self.mdc_bottomSheetPresentationController.preferredSheetHeight = [self openingSheetHeight];
@@ -215,7 +257,7 @@ static const CGFloat kDividerDefaultAlpha = (CGFloat)0.12;
   if (@available(iOS 11.0, *)) {
     preferredHeight = preferredHeight - self.tableView.adjustedContentInset.bottom;
   }
-  return MDCCeil(preferredHeight);
+  return ceil(preferredHeight);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -227,6 +269,10 @@ static const CGFloat kDividerDefaultAlpha = (CGFloat)0.12;
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
 
+  for (MDCActionSheetAction *action in self.actions) {
+    action.actionSheet = self;
+  }
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
   self.mdc_bottomSheetPresentationController.delegate = self;
@@ -235,6 +281,12 @@ static const CGFloat kDividerDefaultAlpha = (CGFloat)0.12;
   self.mdc_bottomSheetPresentationController.dismissOnBackgroundTap =
       self.transitionController.dismissOnBackgroundTap;
   [self.view layoutIfNeeded];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+  for (MDCActionSheetAction *action in self.actions) {
+    action.actionSheet = nil;
+  }
 }
 
 - (BOOL)accessibilityPerformEscape {
@@ -321,14 +373,32 @@ static const CGFloat kDividerDefaultAlpha = (CGFloat)0.12;
   cell.backgroundColor = self.backgroundColor;
   cell.actionFont = self.actionFont;
   cell.accessibilityIdentifier = action.accessibilityIdentifier;
-  cell.inkColor = self.inkColor;
   cell.rippleColor = self.rippleColor;
-  cell.enableRippleBehavior = self.enableRippleBehavior;
   cell.tintColor = action.tintColor ?: self.actionTintColor;
   cell.imageRenderingMode = self.imageRenderingMode;
   cell.addLeadingPadding = self.addLeadingPaddingToCell;
   cell.actionTextColor = action.titleColor ?: self.actionTextColor;
+  cell.contentEdgeInsets = self.contentEdgeInsets;
+  cell.dividerColor = action.dividerColor;
+  cell.showsDivider = action.showsDivider;
   return cell;
+}
+
+- (void)tableView:(UITableView *)tableView
+      willDisplayCell:(nonnull UITableViewCell *)cell
+    forRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+  if ([self.delegate respondsToSelector:@selector(actionSheetController:
+                                                        willDisplayView:forRowAtIndexPath:)]) {
+    [self.delegate actionSheetController:self willDisplayView:cell forRowAtIndexPath:indexPath];
+  }
+}
+
+- (void)setContentEdgeInsets:(UIEdgeInsets)contentEdgeInsets {
+  if (UIEdgeInsetsEqualToEdgeInsets(_contentEdgeInsets, contentEdgeInsets)) {
+    return;
+  }
+  _contentEdgeInsets = contentEdgeInsets;
+  [self.tableView reloadData];
 }
 
 - (void)setTitle:(NSString *)title {
@@ -352,14 +422,14 @@ static const CGFloat kDividerDefaultAlpha = (CGFloat)0.12;
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
   [super traitCollectionDidChange:previousTraitCollection];
 
-#if defined(__IPHONE_13_0) && (__IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_13_0)
+#if MDC_AVAILABLE_SDK_IOS(13_0)
   if (@available(iOS 13.0, *)) {
     if ([self.traitCollection
             hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
       [self.tableView reloadData];
     }
   }
-#endif
+#endif  // MDC_AVAILABLE_SDK_IOS(13_0)
 
   if (self.traitCollectionDidChangeBlock) {
     self.traitCollectionDidChangeBlock(self, previousTraitCollection);
@@ -478,9 +548,13 @@ static const CGFloat kDividerDefaultAlpha = (CGFloat)0.12;
 
 - (void)setAlwaysAlignTitleLeadingEdges:(BOOL)alignTitles {
   _alwaysAlignTitleLeadingEdges = alignTitles;
-  // Check to make sure at least one action has an image. If not then all actions will align already
-  // and we don't need to add padding.
-  self.addLeadingPaddingToCell = [self anyActionHasAnImage];
+  if (alignTitles) {
+    // Check to make sure at least one action has an image. If not then all actions will align
+    // already and we don't need to add padding.
+    self.addLeadingPaddingToCell = [self anyActionHasAnImage];
+  } else {
+    self.addLeadingPaddingToCell = NO;
+  }
   [self.tableView reloadData];
 }
 
@@ -493,30 +567,8 @@ static const CGFloat kDividerDefaultAlpha = (CGFloat)0.12;
   return NO;
 }
 
-- (UIColor *)inkColor {
-  return _inkColor;
-}
-
-- (void)setInkColor:(UIColor *)inkColor {
-  _inkColor = inkColor;
-  [self.tableView reloadData];
-}
-
 - (void)setRippleColor:(UIColor *)rippleColor {
-  if (_rippleColor == rippleColor || [_rippleColor isEqual:rippleColor]) {
-    return;
-  }
   _rippleColor = rippleColor;
-
-  [self.tableView reloadData];
-}
-
-- (void)setEnableRippleBehavior:(BOOL)enableRippleBehavior {
-  if (_enableRippleBehavior == enableRippleBehavior) {
-    return;
-  }
-  _enableRippleBehavior = enableRippleBehavior;
-
   [self.tableView reloadData];
 }
 
@@ -530,6 +582,41 @@ static const CGFloat kDividerDefaultAlpha = (CGFloat)0.12;
 
 - (CGFloat)mdc_currentElevation {
   return self.elevation;
+}
+
+#pragma mark - MDCBottomSheetPresentationControllerDelegate
+
+- (void)bottomSheetPresentationControllerDidDismissBottomSheet:
+    (nonnull MDCBottomSheetController *)controller {
+  if ([self.delegate respondsToSelector:@selector(actionSheetControllerDidDismiss:)]) {
+    [self.delegate actionSheetControllerDidDismiss:self];
+  }
+}
+
+- (void)bottomSheetPresentationControllerDismissalAnimationCompleted:
+    (MDCBottomSheetPresentationController *)bottomSheet {
+  if ([self.delegate
+          respondsToSelector:@selector(actionSheetControllerDismissalAnimationCompleted:)]) {
+    [self.delegate actionSheetControllerDismissalAnimationCompleted:self];
+  }
+}
+
+#pragma mark - Resource bundle
+
++ (NSBundle *)bundle {
+  static NSBundle *bundle = nil;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    bundle = [NSBundle bundleWithPath:[self bundlePathWithName:kMaterialActionSheetBundle]];
+  });
+
+  return bundle;
+}
+
++ (NSString *)bundlePathWithName:(NSString *)bundleName {
+  NSBundle *bundle = [NSBundle bundleForClass:[MDCActionSheetController class]];
+  NSString *resourcePath = [(nil == bundle ? [NSBundle mainBundle] : bundle) resourcePath];
+  return [resourcePath stringByAppendingPathComponent:bundleName];
 }
 
 @end

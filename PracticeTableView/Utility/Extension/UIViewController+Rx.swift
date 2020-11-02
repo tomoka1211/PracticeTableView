@@ -6,4 +6,13 @@
 //  Copyright © 2020 hirano_tomoka. All rights reserved.
 //
 
-import Foundation
+import RxCocoa
+import RxSwift
+
+extension Reactive where Base: UIViewController {
+    var dismiss: Binder<Void> {
+        return Binder(self.base) { viewController, _ in
+            viewController.dismiss(animated: true)
+        }
+    }
+}

@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         
         // ViewControllerを生成.
-        let myViewController: ViewController = ViewController()
+        let myViewController = WebViewController()
         
         // Navication Controllerを生成.
         myNavigationController = UINavigationController(rootViewController: myViewController)

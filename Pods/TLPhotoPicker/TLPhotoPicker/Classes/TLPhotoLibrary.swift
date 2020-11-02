@@ -6,7 +6,7 @@
 //  Copyright © 2017년 wade.hawk. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Photos
 
 protocol TLPhotoLibraryDelegate: class {
@@ -21,6 +21,9 @@ class TLPhotoLibrary {
     lazy var imageManager: PHCachingImageManager = {
         return PHCachingImageManager()
     }()
+    internal var limitMode: Bool = false
+    internal var assetCollections: [PHFetchResult<PHAssetCollection>] = []
+    internal var albums: PHFetchResult<PHCollection>? = nil
     
     deinit {
         //        print("deinit TLPhotoLibrary")
@@ -164,6 +167,8 @@ extension TLPhotoLibrary {
     }
     
     func fetchCollection(configure: TLPhotosPickerConfigure) {
+        self.albums = nil
+        self.assetCollections = []
         let useCameraButton = configure.usedCameraButton
         let options = getOption(configure: configure)
         let fetchCollectionOption = configure.fetchCollectionOption
@@ -173,6 +178,7 @@ extension TLPhotoLibrary {
             let fetchCollection = PHAssetCollection.fetchAssetCollections(with: .album,
                                                                           subtype: subType,
                                                                           options: collectionOption)
+            self.assetCollections.append(fetchCollection)
             var collections = [PHAssetCollection]()
             fetchCollection.enumerateObjects { (collection, index, _) in 
                 if configure.allowedAlbumCloudShared == false && collection.assetCollectionSubtype == .albumCloudShared {
@@ -202,6 +208,7 @@ extension TLPhotoLibrary {
             let fetchCollection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum,
                                                                           subtype: subType,
                                                                           options: collectionOption)
+            self.assetCollections.append(fetchCollection)
             if
                 let collection = fetchCollection.firstObject,
                 result.contains(where: { $0.localIdentifier == collection.localIdentifier }) == false
@@ -233,11 +240,12 @@ extension TLPhotoLibrary {
         }else {
             DispatchQueue.global(qos: .userInteractive).async { [weak self] in
                 var assetCollections = [TLAssetsCollection]()
-                //Camera Roll
-                let camerarollCollection = getSmartAlbum(subType: .smartAlbumUserLibrary,
-                                                         useCameraButton: useCameraButton,
-                                                         result: &assetCollections)
-                if var cameraRoll = camerarollCollection {
+                
+                //Recents
+                let recentsCollection = getSmartAlbum(subType: .smartAlbumUserLibrary,
+                                                      useCameraButton: useCameraButton,
+                                                      result: &assetCollections)
+                if var cameraRoll = recentsCollection {
                     cameraRoll.title = configure.customLocalizedTitle[cameraRoll.title] ?? cameraRoll.title
                     cameraRoll.useCameraButton = useCameraButton
                     assetCollections[0] = cameraRoll
@@ -245,6 +253,8 @@ extension TLPhotoLibrary {
                         self?.delegate?.loadCameraRollCollection(collection: cameraRoll)
                     }
                 }
+                //Screenshots
+                getSmartAlbum(subType: .smartAlbumScreenshots, result: &assetCollections)
                 //Selfies
                 getSmartAlbum(subType: .smartAlbumSelfPortraits, result: &assetCollections)
                 //Panoramas
@@ -262,6 +272,7 @@ extension TLPhotoLibrary {
                 //Album
                 let collectionOption = fetchCollectionOption[.topLevelUserCollections]
                 let albumsResult = PHCollectionList.fetchTopLevelUserCollections(with: collectionOption)
+                self?.albums = albumsResult
                 albumsResult.enumerateObjects({ (collection, index, stop) -> Void in
                     guard let collection = collection as? PHAssetCollection else { return }
                     var assetsCollection = TLAssetsCollection(collection: collection)

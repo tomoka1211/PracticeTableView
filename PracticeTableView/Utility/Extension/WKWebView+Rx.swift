@@ -6,4 +6,21 @@
 //  Copyright © 2020 hirano_tomoka. All rights reserved.
 //
 
-import Foundation
+import WebKit
+import RxSwift
+import RxCocoa
+
+extension Reactive where Base: WKWebView {
+    var load: Binder<URL> {
+        return Binder(self.base) { webView, url in
+            let request = URLRequest(url: url)
+            webView.load(request)
+        }
+    }
+    
+    var loadHTMLString: Binder<String> {
+        return Binder(self.base) { webView, text in
+            webView.loadHTMLString(text, baseURL: nil)
+        }
+    }
+}

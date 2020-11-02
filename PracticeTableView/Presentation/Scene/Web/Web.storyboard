@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HAS-Sh-3T3">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Web View Controller-->
+        <scene sceneID="pdW-yw-hdo">
+            <objects>
+                <viewController id="HAS-Sh-3T3" customClass="WebViewController" customModule="PracticeTableView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6mb-yf-Bic">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ETF-eD-f0E">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="Background"/>
+                        <constraints>
+                            <constraint firstItem="ff6-OG-BGZ" firstAttribute="bottom" secondItem="ETF-eD-f0E" secondAttribute="bottom" id="2G9-Ja-MdE"/>
+                            <constraint firstItem="ff6-OG-BGZ" firstAttribute="trailing" secondItem="ETF-eD-f0E" secondAttribute="trailing" id="3S2-wL-7rU"/>
+                            <constraint firstItem="ETF-eD-f0E" firstAttribute="top" secondItem="ff6-OG-BGZ" secondAttribute="top" id="6tn-9m-xdp"/>
+                            <constraint firstItem="ETF-eD-f0E" firstAttribute="leading" secondItem="ff6-OG-BGZ" secondAttribute="leading" id="jn3-qu-bZr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ff6-OG-BGZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="webViewContainer" destination="ETF-eD-f0E" id="oGr-J4-U3y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mum-In-NB2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-162" y="78"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Background">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
