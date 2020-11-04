@@ -25,7 +25,7 @@ final class PickerKeyboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        pickerLabel.data = [("水星", 1), ("金星", 2), ("地球", 3), ("火星", 4), ("木星", 11), ("土星", 6), ("天王星", 7), ("海王星", 8)]
+        pickerLabel.data = [("水星", 1), ("金星", 2), ("地球", 3), ("火星", 4), ("木星", 11), ("土星", 6), ("天王星", 7), ("海王星", 8),("冥王星", 9)]
         pickerLabel.selected
             .map { "選択した値は\($0)" }
             .bind(to: selectedLabel.rx.text)
