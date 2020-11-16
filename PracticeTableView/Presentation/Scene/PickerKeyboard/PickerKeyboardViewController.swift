@@ -18,7 +18,7 @@ final class PickerKeyboardViewController: UIViewController {
     
     // MARK: - Property
     
-    var disposeBag = DisposeBag()
+    let disposeBag = DisposeBag()
     
     // MARK: - Lifecycle
     
